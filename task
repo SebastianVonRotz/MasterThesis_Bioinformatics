@@ -1,0 +1,40 @@
+function start() {
+    echo hello
+}
+
+function load-env() {
+    export $(cat env)
+}
+
+function upload-script() {
+    load-env
+    echo "upload script:"
+    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+    echo "upload env vars:"
+    scp ./env head.hpc.zhaw.ch:$REMOTE_PATH
+}
+
+function run-hpc-script() {
+    load-env
+    echo "run $1 script"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+}
+
+# Switch case for script parameter 1
+case "$1" in
+    start)
+        start
+        ;;
+    load-env)
+        load-env
+        ;;
+    upload-script)
+        upload-script $2
+        ;;
+    run-hpc-script)
+        run-hpc-script $2
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|upload-script}"
+        exit 1
+esac
