@@ -23,7 +23,7 @@ Upload the actual env file and a script
 `task upload-script <script_name>`
 
 Run a script defined in the scripts directory
-`task run-hpc-script <script_name>`
+`task run-hpc-script <workflow_directory> <script_name>`
 
 Check the status of the hpc and get running jobs of others
 `task hpc-status`
@@ -41,4 +41,4 @@ Cancel a job
 ## Helpers
 
 Convert dos file to unix file.  
-`dos2unix filename`
+`dos2unix <filename>`

@@ -3,21 +3,22 @@ function start() {
 }
 
 function load-env() {
-    export $(cat env)
+    echo "The env file: $1 is loaded"
+    export $(cat ./scripts/$1)
 }
 
 function upload-script() {
-    load-env
-    echo "upload script:"
-    scp ./$1/$2 head.hpc.zhaw.ch:$REMOTE_PATH
-    echo "upload env vars:"
-    scp ./env head.hpc.zhaw.ch:$REMOTE_PATH
+    load-env $2
+    echo "upload script: $1 "
+    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+    echo "upload env vars: $2 "
+    scp ./scripts/$2 head.hpc.zhaw.ch:$REMOTE_PATH
 }
 
 function run-hpc-script() {
-    load-env
+    load-env $2
     echo "run $1 script"
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1 $2"
 }
 
 function hpc-status() {
@@ -40,20 +41,19 @@ function cancel-job() {
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; scancel $1"
 }
 
-
 # Switch case for script parameter 1
 case "$1" in
     start)
         start
         ;;
     load-env)
-        load-env
+        load-env $2
         ;;
     upload-script)
-        upload-script $2
+        upload-script $2 $3
         ;;
     run-hpc-script)
-        run-hpc-script $1 $2
+        run-hpc-script $2 $3
         ;;
     hpc-status)
         hpc-status
@@ -64,7 +64,7 @@ case "$1" in
     node-status)
         node-status
         ;;
-    camcel-job)
+    cancel-job)
         cancel-job $2
         ;;
     *)
