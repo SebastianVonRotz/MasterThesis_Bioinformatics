@@ -9,7 +9,7 @@ function load-env() {
 function upload-script() {
     load-env
     echo "upload script:"
-    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+    scp ./$1/$2 head.hpc.zhaw.ch:$REMOTE_PATH
     echo "upload env vars:"
     scp ./env head.hpc.zhaw.ch:$REMOTE_PATH
 }
@@ -19,6 +19,27 @@ function run-hpc-script() {
     echo "run $1 script"
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
 }
+
+function hpc-status() {
+    echo "Get queue status"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; squeue"
+}
+
+function job-status() {
+    echo "Get job #$1 status"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sstat -j $1"
+}
+
+function node-status() {
+    echo "Get node status"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sinfo"
+}
+
+function cancel-job() {
+    echo "Cancel the job #$1"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; scancel $1"
+}
+
 
 # Switch case for script parameter 1
 case "$1" in
@@ -32,7 +53,19 @@ case "$1" in
         upload-script $2
         ;;
     run-hpc-script)
-        run-hpc-script $2
+        run-hpc-script $1 $2
+        ;;
+    hpc-status)
+        hpc-status
+        ;;
+    job-status)
+        job-status $2
+        ;;
+    node-status)
+        node-status
+        ;;
+    camcel-job)
+        cancel-job $2
         ;;
     *)
         echo $"Usage: $0 {start|stop|upload-script}"
