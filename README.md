@@ -6,18 +6,24 @@
 1. Clone this project.  
 `git clone https://...` 
 
-1. Setup SSH-Keypair.
+1. Setup SSH-Keypair. `
+`ssh-keygen -t rsa`
+
 
 1.  Upload public SSH key to `head.hpc.zhaw.ch`.
+`ssh-copy-id demo@198.51.100.0`
 
-1. Create an alias for task script in your `.bashrc/.zshrc`.  
-`alias task='./task'`
+1. Create an alias for task script in your `.bashrc/.zshrc`.
+` alias task='./task' `
 
 
 ## Usage
 
 Load the env paths
 `task load-env`
+
+Connect to the hpc server
+`task conn-hpc`
 
 Upload the actual env file and a script
 `task upload-script <script_name>`
