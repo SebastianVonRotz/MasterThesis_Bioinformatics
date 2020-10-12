@@ -1,4 +1,7 @@
 DATAPATH_BASECALLING_D3_IN=../data/Dataset_3/fast5_pass/
 DATAPATH_BASECALLING_D3_OUT=../results/Dataset_3/wf_01_basecalling-guppy_D3/
 
+DATAPATH_NANOPLOT_D3_IN=../results/Dataset_3/wf_01_basecalling-guppy_D3/sequencing_summary.txt
+DATAPATH_NANOPLOT_D3_OUT=../results/Dataset_3/wf_01_nanoplot_D3/
+
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"

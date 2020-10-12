@@ -1,5 +1,10 @@
 function start() {
-    echo hello
+    echo "The task setup is initiated"
+}
+
+function conn-hpc() {
+    echo "starting ssh connection to the hpc"
+    ssh -t head.hpc.zhaw.ch "cd /cfs/earth/scratch/voro/scripts; bash"
 }
 
 function load-env() {
@@ -28,7 +33,7 @@ function hpc-status() {
 
 function job-status() {
     echo "Get job #$1 status"
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sstat -j $1"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sacct -j $1 --format=JobName,CPUTimeRAW,Submit,Start,End,Elapsed"
 }
 
 function node-status() {
@@ -45,6 +50,9 @@ function cancel-job() {
 case "$1" in
     start)
         start
+        ;;
+    conn-hpc)
+        conn-hpc
         ;;
     load-env)
         load-env $2
