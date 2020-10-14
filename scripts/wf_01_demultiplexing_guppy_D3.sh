@@ -21,10 +21,10 @@ module load guppy/3.3.3
 
 export $(cat ./$1)
 
-mkdir -p $DATAPATH_DEMULTPLEXING_D1_OUT
+mkdir -p $DATAPATH_DEMULTPLEXING_D3_OUT
  
 
 # Run the guppy application here
 #guppy_barcoder --help
 #guppy_barcoder --print_kits
-guppy_barcoder -i $DATAPATH_DEMULTPLEXING_D1_IN -s $DATAPATH_DEMULTPLEXING_D1_OUT --flowcell $FLOWCELL_D1 --kit $KIT_D1
+guppy_barcoder -i $DATAPATH_DEMULTPLEXING_D3_IN -s $DATAPATH_DEMULTPLEXING_D3_OUT --flowcell $FLOWCELL_D3 --kit $KIT_D3

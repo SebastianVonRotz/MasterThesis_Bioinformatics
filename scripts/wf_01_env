@@ -1,7 +1,32 @@
 DATAPATH_BASECALLING_D3_IN=../data/Dataset_3/fast5_pass/
 DATAPATH_BASECALLING_D3_OUT=../results/Dataset_3/wf_01_basecalling-guppy_D3/
 
+
+DATAPATH_NANOPLOT_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/sequencing_summary.txt
+DATAPATH_NANOPLOT_D1_OUT=../results/Dataset_1/wf_01_nanoplot_D1/
+
+DATAPATH_NANOPLOT_D2_IN=../results/Dataset_2/wf_01_basecalling-guppy_D2/sequencing_summary.txt
+DATAPATH_NANOPLOT_D2_OUT=../results/Dataset_2/wf_01_nanoplot_D2/
+
 DATAPATH_NANOPLOT_D3_IN=../results/Dataset_3/wf_01_basecalling-guppy_D3/sequencing_summary.txt
 DATAPATH_NANOPLOT_D3_OUT=../results/Dataset_3/wf_01_nanoplot_D3/
 
+
+DATAPATH_DEMULTPLEXING_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/
+DATAPATH_DEMULTPLEXING_D1_OUT=../results/Dataset_1/wf_01_demultiplexing_guppy_D1/
+FLOWCELL_D1=FLO-MIN106 
+KIT_D1=SQK-PBK004
+
+DATAPATH_DEMULTPLEXING_D2_IN=../results/Dataset_2/wf_01_basecalling-guppy_D2/
+DATAPATH_DEMULTPLEXING_D2_OUT=../results/Dataset_2/wf_01_demultiplexing_guppy_D2/
+FLOWCELL_D2=FLO-MIN106 
+KIT_D2=SQK-PBK004
+
+DATAPATH_DEMULTPLEXING_D3_IN=../results/Dataset_3/wf_01_basecalling-guppy_D3/
+DATAPATH_DEMULTPLEXING_D3_OUT=../results/Dataset_3/wf_01_demultiplexing_guppy_D3/
+FLOWCELL_D3=FLO-MIN106 
+KIT_D3=EXP-PBC001
+
+
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
+

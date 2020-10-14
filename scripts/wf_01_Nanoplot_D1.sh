@@ -17,14 +17,13 @@
 # Load modules of dependencies module purge
 module load slurm
 module load USS/2020
-module load guppy/3.3.3
+module load gcc/7.3.0
+module load openblas/0.3.5-haswell-ep
+module load py-nanoplot/1.32.0-openblas-py3.6-pe5.26
 
 export $(cat ./$1)
+mkdir -p $DATAPATH_NANOPLOT_D1_OUT  
 
-mkdir -p $DATAPATH_DEMULTPLEXING_D1_OUT
- 
+NanoPlot --summary  $DATAPATH_NANOPLOT_D1_IN --loglength -o $DATAPATH_NANOPLOT_D1_OUT  
+					 
 
-# Run the guppy application here
-#guppy_barcoder --help
-#guppy_barcoder --print_kits
-guppy_barcoder -i $DATAPATH_DEMULTPLEXING_D1_IN -s $DATAPATH_DEMULTPLEXING_D1_OUT --flowcell $FLOWCELL_D1 --kit $KIT_D1
