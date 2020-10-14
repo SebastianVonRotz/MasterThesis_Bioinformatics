@@ -18,38 +18,54 @@
 
 1. Create an alias for task script in your `.bashrc/.zshrc` (simply paste the alias command in the file at the bottom).
 
-    ` alias task='./task' `
+    `alias task='./task'`
 
 
 ## Usage
 
-Load the env paths
+Check if task alias is created or loaded
 
-    task load-env
+`task start`
 
 Connect to the hpc server
+
 `task conn-hpc`
 
+Load the env paths
+
+`task load-env`
+
 Upload the actual env file and a script
-`task upload-script <script_name>`
+
+`task upload-script <script_name> <env file>`
 
 Run a script defined in the scripts directory
-`task run-hpc-script <workflow_directory> <script_name>`
+
+`task run-hpc-script <script_name> <env file>`
 
 Check the status of the hpc and get running jobs of others
+
 `task hpc-status`
 
 Check the status of a specific job
-`task job-status`
+
+`task job-status <Job ID>`
 
 Get a list of available nodes
+
 `task node-status`
 
 Cancel a job
+
 `task cancel-jobs`
+
+Get files or directory from hpc server (stored in data_temp directory)
+
+`dl-data <file/directory path>`
 
 
 ## Helpers
 
 Convert dos file to unix file.  
+
 `dos2unix <filename>`

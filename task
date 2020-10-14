@@ -46,6 +46,13 @@ function cancel-job() {
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; scancel $1"
 }
 
+
+function dl-data() {
+    echo "Downloading data from: $1"
+    scp -r head.hpc.zhaw.ch:$1 ./data_temp
+}
+
+
 # Switch case for script parameter 1
 case "$1" in
     start)
@@ -74,6 +81,9 @@ case "$1" in
         ;;
     cancel-job)
         cancel-job $2
+        ;;
+    dl-data)
+        dl-data $2
         ;;
     *)
         echo $"Usage: $0 {start|stop|upload-script}"
