@@ -5,26 +5,27 @@
 
 1. Clone this project.  
 
-`git clone https://...` 
+    `git clone https://...` 
 
 1. Setup SSH-Keypair. `
 
-`ssh-keygen -t rsa`
+    `ssh-keygen -t rsa`
 
 
 1.  Upload public SSH key to `head.hpc.zhaw.ch`.
 
-`ssh-copy-id demo@198.51.100.0`
+    `ssh-copy-id demo@198.51.100.0`
 
 1. Create an alias for task script in your `.bashrc/.zshrc` (simply paste the alias command in the file at the bottom).
 
-` alias task='./task' `
+    ` alias task='./task' `
 
 
 ## Usage
 
 Load the env paths
-`task load-env`
+
+    task load-env
 
 Connect to the hpc server
 `task conn-hpc`
