@@ -1,7 +1,0 @@
-DATAPATH_BASECALLING_TEST_IN=../data/Dataset_test/fast5_small/
-DATAPATH_BASECALLING_Test_1_OUT=../results/Dataset_test/wf_02_basecalling-guppy_1/
-DATAPATH_BASECALLING_Test_2_OUT=../results/Dataset_test/wf_02_basecalling-guppy_2/
-DATAPATH_BASECALLING_TEST_3_OUT=../results/Dataset_test/wf_02_basecalling-guppy_3/
-DATAPATH_BASECALLING_TEST_4_OUT=../results/Dataset_test/wf_02_basecalling-guppy_4/
-
-REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
