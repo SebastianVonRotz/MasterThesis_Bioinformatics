@@ -28,5 +28,9 @@ FLOWCELL_D3=FLO-MIN106
 KIT_D3=EXP-PBC001
 
 
+DATAPATH_DEMULTPLEXING_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/
+DATAPATH_DEMULTPLEXING_QCAT_D1_OUT=../results/Dataset_1/wf_01_demultiplexing_qcat_D1/
+
+
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
 
