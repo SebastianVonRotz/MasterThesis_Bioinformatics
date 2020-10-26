@@ -14,23 +14,32 @@ DATAPATH_NANOPLOT_D3_OUT=../results/Dataset_3/wf_01_nanoplot_D3/
 
 DATAPATH_DEMULTPLEXING_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/
 DATAPATH_DEMULTPLEXING_D1_OUT=../results/Dataset_1/wf_01_demultiplexing_guppy_D1/
+DATAPATH_DEMULTPLEXING_D1_02_OUT=../results/Dataset_1/wf_01_demultiplexing_guppy_D1_02/
 FLOWCELL_D1=FLO-MIN106 
 KIT_D1=SQK-PBK004
+BARCODING_CONFIG_NAME_D1=dna_r9.4.1_450bps_hac
 
 DATAPATH_DEMULTPLEXING_D2_IN=../results/Dataset_2/wf_01_basecalling-guppy_D2/
 DATAPATH_DEMULTPLEXING_D2_OUT=../results/Dataset_2/wf_01_demultiplexing_guppy_D2/
 FLOWCELL_D2=FLO-MIN106 
 KIT_D2=SQK-PBK004
+BARCODING_CONFIG_NAME_D2=dna_r9.4.1_450bps_hac
 
 DATAPATH_DEMULTPLEXING_D3_IN=../results/Dataset_3/wf_01_basecalling-guppy_D3/
 DATAPATH_DEMULTPLEXING_D3_OUT=../results/Dataset_3/wf_01_demultiplexing_guppy_D3/
 FLOWCELL_D3=FLO-MIN106 
 KIT_D3=EXP-PBC001
+BARCODING_CONFIG_NAME_D3=dna_r9.4.1_450bps_hac
 
 
 DATAPATH_DEMULTPLEXING_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/
 DATAPATH_DEMULTPLEXING_QCAT_D1_OUT=../results/Dataset_1/wf_01_demultiplexing_qcat_D1/
 
+DATAPATH_DEMULTPLEXING_D2_IN=../results/Dataset_2/wf_01_basecalling-guppy_D2/
+DATAPATH_DEMULTPLEXING_QCAT_D2_OUT=../results/Dataset_2/wf_01_demultiplexing_qcat_D2/
+
+DATAPATH_DEMULTPLEXING_D3_IN=../results/Dataset_3/wf_01_basecalling-guppy_D3/
+DATAPATH_DEMULTPLEXING_QCAT_D3_OUT=../results/Dataset_3/wf_01_demultiplexing_qcat_D3/
 
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
 

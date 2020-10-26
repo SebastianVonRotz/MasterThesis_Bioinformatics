@@ -3,5 +3,6 @@ DATAPATH_BASECALLING_Test_1_OUT=../results/Dataset_test/wp_01_basecalling-guppy_
 DATAPATH_BASECALLING_Test_2_OUT=../results/Dataset_test/wp_01_basecalling-guppy_2/
 DATAPATH_BASECALLING_TEST_3_OUT=../results/Dataset_test/wp_01_basecalling-guppy_3/
 DATAPATH_BASECALLING_TEST_4_OUT=../results/Dataset_test/wp_01_basecalling-guppy_4/
+DATAPATH_BASECALLING_TEST_5_OUT=../results/Dataset_test/wp_01_basecalling-guppy_5/
 
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
