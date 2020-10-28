@@ -22,7 +22,7 @@
 
 ## User Setup Overview
 
-![Image of the overview](https://github.zhaw.ch/voro/MA-Bioinformatics-Workflows//tree/master/images/user_setup_overview.jpg)
+![Image of the overview](https://github.zhaw.ch/voro/MA-Bioinformatics-Workflows/blob/master/images/user_setup_overview.JPG)
 
 ## Usage
 
