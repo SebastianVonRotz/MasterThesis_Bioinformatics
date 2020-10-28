@@ -20,6 +20,9 @@
 
     `alias task='./task'`
 
+## User Setup Overview
+
+![GitHub Logo](/images/user_setup_overview.jpg)
 
 ## Usage
 
