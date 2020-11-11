@@ -5,4 +5,16 @@ DATAPATH_BASECALLING_TEST_3_OUT=../results/Dataset_test/wp_01_basecalling-guppy_
 DATAPATH_BASECALLING_TEST_4_OUT=../results/Dataset_test/wp_01_basecalling-guppy_4/
 DATAPATH_BASECALLING_TEST_5_OUT=../results/Dataset_test/wp_01_basecalling-guppy_5/
 
+
+DATAPATH_DEMULTPLEXING_IN=../results/Dataset_test/wp_01_basecalling-guppy_1/
+DATAPATH_DEMULTPLEXING_QCAT_OUT=../results/Dataset_test/wp_01_demultiplexing_qcat/
+
+
+DATAPATH_NANOPLOT_IN=../results/Dataset_test/wp_01_basecalling-guppy_1/sequencing_summary.txt
+DATAPATH_NANOPLOT_OUT=../results/Dataset_test/wp_01_nanoplot/
+
+
+DATAPATH_FILTER_TRIM_NANOFILT_IN=../results/Dataset_test/wp_01_demultiplexing_qcat/
+DATAPATH_FILTER_TRIM_NANOFILT_OUT=../results/Dataset_test/wp_01_filter_trim_nanofilt/
+
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
