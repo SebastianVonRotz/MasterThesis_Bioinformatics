@@ -11,7 +11,7 @@
 #SBATCH --qos=single
 #
 #SBATCH --mail-type=end 
-#SBATCH --mail-user=voro@zhaw.chpw
+#SBATCH --mail-user=voro@zhaw.ch
 #
  
 # Load modules of dependencies module purge
