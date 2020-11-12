@@ -14,13 +14,22 @@
 #SBATCH --mail-user=voro@zhaw.ch
 #
  
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi
+
 # Load modules of dependencies module purge
 module load slurm
 module load USS/2020
 module load guppy/3.3.3
 
-export $(cat ./$MANIFEST_FILE | egrep -v "^\s*(#|$)")
+# Export the aprameters from the manifest file
+source $MANIFEST_FILE 
+
+# Create the result directory
 mkdir -p $DATAPATH_BASECALLING_OUT$RUN_NAME
  
 # Run the guppy application here guppy_basecaller --help guppy_basecaller --print_workflows --compress_fastq
 guppy_basecaller -i $DATAPATH_BASECALLING_IN -s $DATAPATH_BASECALLING_OUT$RUN_NAME --cpu_threads_per_caller $SLURM_CPUS_PER_TASK --num_callers $SLURM_NTASKS_PER_NODE -c dna_r9.4.1_450bps_hac.cfg
+
+# If the this slurm job fail a crash file is generated
+if [ $? != 0 ]; then touch crash; fi

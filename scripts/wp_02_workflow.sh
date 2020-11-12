@@ -1,20 +1,20 @@
 # Define the name of the run
 #---------------------------#
-RUN_NAME=Test_001
-export RUN_NAME
+export RUN_NAME=_Test_003
 #
 #
 #Define the manifest file
 #------------------------#
-MANIFEST_FILE=wp_02_manifest
-export MANIFEST_FILE
+export MANIFEST_FILE=wp_02_manifest.sh
 #
 #
 # Run the basecalling
 #--------------------#
-RES=$(sbatch wp_02_basecalling_guppy.sh RUN_NAME MANIFEST_FILE)
+RES1=$(sbatch wp_02_basecalling_guppy.sh RUN_NAME MANIFEST_FILE)
+echo The script wp_02_basecalling_guppy.sh is running with the job id ${RES1##* }
 #
 #
 # Run the demultiplexing
 #-----------------------#
-sbatch --dependency=afterok:${RES##* } wp_02_demultiplexing_qcat.sh RUN_NAME MANIFEST_FILE
+RES2=$(sbatch --dependency=afterany:${RES1##* } wp_02_demultiplexing_qcat.sh RUN_NAME MANIFEST_FILE)
+echo The script wp_02_demultiplexing_qcat.sh is running with the job id ${RES2##* }
