@@ -1,6 +1,15 @@
 DATAPATH_BASECALLING_D3_IN=../data/Dataset_3/fast5_pass/
 DATAPATH_BASECALLING_D3_OUT=../results/Dataset_3/wf_01_basecalling-guppy_D3/
 
+DATAPATH_BASECALLING_D4_IN=../data/Dataset_4/
+DATAPATH_BASECALLING_D4_OUT=../results/Dataset_4/wf_01_basecalling-guppy_D4/
+
+DATAPATH_BASECALLING_D5_IN=../data/Dataset_5/
+DATAPATH_BASECALLING_D5_OUT=../results/Dataset_5/wf_01_basecalling-guppy_D5/
+DATAPATH_BASECALLING_D5_ARRAY_IN=../data/Dataset_5_Array/
+DATAPATH_BASECALLING_D5_ARRAY_OUT=../results/Dataset_5/wf_01_basecalling-guppy_array_D5/
+
+
 
 
 DATAPATH_NANOPLOT_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/sequencing_summary.txt
