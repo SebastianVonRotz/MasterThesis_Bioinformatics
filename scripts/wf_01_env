@@ -12,6 +12,7 @@ DATAPATH_BASECALLING_D5_ARRAY_OUT_NEW=../results/Dataset_5/wf_01_basecalling-gup
 
 
 
+
 DATAPATH_NANOPLOT_D1_IN=../results/Dataset_1/wf_01_basecalling-guppy_D1/sequencing_summary.txt
 DATAPATH_NANOPLOT_D1_OUT=../results/Dataset_1/wf_01_nanoplot_D1/
 
@@ -68,6 +69,13 @@ DATAPATH_DEMULTPLEXING_QCAT_D2_OUT=../results/Dataset_2/wf_01_demultiplexing_qca
 DATAPATH_DEMULTPLEXING_D3_IN=../results/Dataset_3/wf_01_basecalling-guppy_D3/
 DATAPATH_DEMULTPLEXING_QCAT_D3_OUT=../results/Dataset_3/wf_01_demultiplexing_qcat_D3/
 
+DATAPATH_DEMULTPLEXING_D4_IN=../results/Dataset_4/wf_01_basecalling-guppy_D4/
+DATAPATH_DEMULTPLEXING_QCAT_D4_OUT=../results/Dataset_4/wf_01_demultiplexing_qcat_D4/
+
+DATAPATH_DEMULTPLEXING_D5_ARR_IN=../results/Dataset_5/wf_01_basecalling-guppy_array_D5_New/
+DATAPATH_DEMULTPLEXING_QCAT_D5_OUT=../results/Dataset_5/wf_01_demultiplexing_qcat_D5/
+
+
 
 
 DATAPATH_FILTER_TRIM_NANOFILT_D1_IN=../results/Dataset_1/wf_01_demultiplexing_qcat_D1/
@@ -75,6 +83,21 @@ DATAPATH_FILTER_TRIM_NANOFILT_D1_OUT=../results/Dataset_1/wf_01_filter_trim_nano
 
 DATAPATH_FILTER_TRIM_NANOFILT_D2_IN=../results/Dataset_2/wf_01_demultiplexing_qcat_D2/
 DATAPATH_FILTER_TRIM_NANOFILT_D2_OUT=../results/Dataset_2/wf_01_filter_trim_nanofilt_D2/
+
+DATAPATH_FILTER_TRIM_NANOFILT_D4_IN=../results/Dataset_4/wf_01_demultiplexing_qcat_D4/
+DATAPATH_FILTER_TRIM_NANOFILT_D4_OUT=../results/Dataset_4/wf_01_filter_trim_nanofilt_D4/
+
+DATAPATH_FILTER_TRIM_NANOFILT_D5_IN=../results/Dataset_5/wf_01_demultiplexing_qcat_D5/
+DATAPATH_FILTER_TRIM_NANOFILT_D5_OUT=../results/Dataset_5/wf_01_filter_trim_nanofilt_D5/
+
+
+
+
+DATAPATH_CLASSIFICATION_KRAKEN2_D4_IN=../results/Dataset_4/wf_01_demultiplexing_qcat_D4/
+DATAPATH_CLASSIFICATION_KRAKEN2_D4_OUT=../results/Dataset_4/wf_01_classification_kraken2_D4/
+
+DATAPATH_CLASSIFICATION_KRAKEN2_D5_IN=../results/Dataset_5/wf_01_demultiplexing_qcat_D5/
+DATAPATH_CLASSIFICATION_KRAKEN2_D5_OUT=../results/Dataset_5/wf_01_classification_kraken2_D5/
 
 REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
 
