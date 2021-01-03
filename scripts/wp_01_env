@@ -1,10 +1,18 @@
 DATAPATH_BASECALLING_TEST_IN=../data/Dataset_test/fast5_small/
+DATAPATH_BASECALLING_TEST_ARRAY_IN=../data/Dataset_test/fast5_small_subdir/
 DATAPATH_BASECALLING_Test_1_OUT=../results/Dataset_test/wp_01_basecalling-guppy_1/
 DATAPATH_BASECALLING_Test_2_OUT=../results/Dataset_test/wp_01_basecalling-guppy_2/
 DATAPATH_BASECALLING_TEST_3_OUT=../results/Dataset_test/wp_01_basecalling-guppy_3/
 DATAPATH_BASECALLING_TEST_4_OUT=../results/Dataset_test/wp_01_basecalling-guppy_4/
 DATAPATH_BASECALLING_TEST_5_OUT=../results/Dataset_test/wp_01_basecalling-guppy_5/
-
+DATAPATH_BASECALLING_TEST_6_OUT=../results/Dataset_test/wp_01_basecalling-guppy_6/
+DATAPATH_BASECALLING_TEST_7_OUT=../results/Dataset_test/wp_01_basecalling-guppy_7/
+DATAPATH_BASECALLING_TEST_8_OUT=../results/Dataset_test/wp_01_basecalling-guppy_8/
+DATAPATH_BASECALLING_TEST_9_OUT=../results/Dataset_test/wp_01_basecalling-guppy_9/
+DATAPATH_BASECALLING_TEST_10_OUT=../results/Dataset_test/wp_01_basecalling-guppy_10/
+DATAPATH_BASECALLING_TEST_11_OUT=../results/Dataset_test/wp_01_basecalling-guppy_11/
+DATAPATH_BASECALLING_TEST_12_OUT=../results/Dataset_test/wp_01_basecalling-guppy_12/
+DATAPATH_BASECALLING_TEST_ARRAY_1_OUT=../results/Dataset_test/wp_01_basecalling-guppy_array_1/
 
 DATAPATH_DEMULTPLEXING_IN=../results/Dataset_test/wp_01_basecalling-guppy_1/
 DATAPATH_DEMULTPLEXING_QCAT_OUT=../results/Dataset_test/wp_01_demultiplexing_qcat/
