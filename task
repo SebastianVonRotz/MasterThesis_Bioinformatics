@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function start() {
     echo "The task setup is initiated"
 }
@@ -20,6 +22,7 @@ function upload-script() {
     scp ./scripts/$2 head.hpc.zhaw.ch:$REMOTE_PATH
 }
 
+# Depreciated
 function run-hpc-script() {
     load-env $2
     echo "run $1 script"
@@ -46,12 +49,17 @@ function cancel-job() {
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; scancel $1"
 }
 
-
 function dl-data() {
     echo "Downloading data from: $1"
     scp -r head.hpc.zhaw.ch:$1 ./data_temp
 }
 
+function run-workflow() {
+    export $(cat .env)
+    echo "Uploading scripts with the workflow name $1 "
+    scp ./scripts/$1* head.hpc.zhaw.ch:$REMOTE_PATH
+    scp .env head.hpc.zhaw.ch:$REMOTE_PATH
+}
 
 # Switch case for script parameter 1
 case "$1" in
@@ -84,6 +92,9 @@ case "$1" in
         ;;
     dl-data)
         dl-data $2
+        ;;
+    run-workflow)
+        run-workflow $2
         ;;
     *)
         echo $"Usage: $0 {start|stop|upload-script}"

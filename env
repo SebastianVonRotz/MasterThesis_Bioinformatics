@@ -1,0 +1,4 @@
+DATAPATH_BASECALLING_TEST_IN="../data/Dataset_test/fast5_small"
+DATAPATH_BASECALLING_TEST_1_OUT="../results/Dataset_test/basecalled_para_1/"
+DATAPATH_BASECALLING_TEST_2_OUT="../results/Dataset_test/basecalled_para_2/"
+REMOTE_PATH="/cfs/earth/scratch/voro/scripts"

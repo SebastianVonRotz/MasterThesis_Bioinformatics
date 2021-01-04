@@ -26,10 +26,10 @@ module load guppy/3.3.3
 source $MANIFEST_FILE 
 
 # Create the result directory
-mkdir -p $DATAPATH_BASECALLING_OUT$RUN_NAME
+mkdir -p $DATAPATH_BASECALLING_OUT
  
 # Run the guppy application here guppy_basecaller --help guppy_basecaller --print_workflows --compress_fastq
-guppy_basecaller -i $DATAPATH_BASECALLING_IN -s $DATAPATH_BASECALLING_OUT$RUN_NAME --cpu_threads_per_caller $SLURM_CPUS_PER_TASK --num_callers $SLURM_NTASKS_PER_NODE --flowcell $FLOWCELL--kit $KIT
+guppy_basecaller -i $DATAPATH_IN -s $DATAPATH_BASECALLING_OUT --flowcell $FLOWCELL--kit $KIT
 
 # If the this slurm job fail a crash file is generated
 if [ $? != 0 ]; then touch crash; fi

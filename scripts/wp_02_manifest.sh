@@ -1,31 +1,23 @@
-####################################
-# Manifest File
-####################################
+# Define the name of the run
+RUN_NAME=_Test_004
 #
+# Remote path on hpc
+REMOTE_PATH=/cfs/earth/scratch/voro/scripts
 #
 # Combination of kit and flowcell
-#
-CONFIG_NAME=dna_r9.4.1_450bps_hac.cfg
 FLOWCELL=FLO-MIN106
 KIT=SQK-RAD002
 #
+# Data Input Path
+DATAPATH_IN=../data/Dataset_test/fast5_tiny/
 #
-# Basecalling
+# Data Output Path
+DATAPATH_OUT=../results/Dataset_Test_wp_02/
 #
-DATAPATH_BASECALLING_IN=../data/Dataset_test/fast5_tiny/
-DATAPATH_BASECALLING_OUT=../results/Dataset_Test_wp_02/basecalled
+# Datapath for basecalling
+DATAPATH_BASECALLING_OUT=${DATAPATH_OUT}Basecalled$RUN_NAME/
 #
+# Datapaht for nanoplot
+DATAPATH_NANOPLOT_OUT=${DATAPATH_OUT}Nanoplot$RUN_NAME/
 #
-# Nanoplot
-#
-DATAPATH_NANOPLOT_In=../results/Dataset_Test_wp_02/basecalled/sequencing_summary.txt
-DATAPATH_NANOPLOT_OUT=../results/Dataset_Test_wp_02/nanoplot
-#
-#
-# Demultiplexing
-#
-DATAPATH_DEMULTPLEXING_QCAT_OUT=../results/Dataset_Test_wp_02/demultiplexed
-#
-#
-# Filtering / Trimming
-#
+# Define files for uploading and processing

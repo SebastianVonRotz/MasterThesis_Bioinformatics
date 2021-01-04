@@ -28,10 +28,10 @@ module load py-nanoplot/1.32.0-openblas-py3.6-pe5.26
 source $MANIFEST_FILE 
 
 # Create the result directory
-mkdir -p $DATAPATH_NANOPLOT_OUT$RUN_NAME
+mkdir -p $DATAPATH_NANOPLOT_OUT
  
 # Run the guppy application here
-NanoPlot --summary  $DATAPATH_NANOPLOT_IN --loglength -o $DATAPATH_NANOPLOT_OUT$RUN_NAME
+NanoPlot --summary  $DATAPATH_BASECALLING_OUTsequencing_summary.txt --loglength -o $DATAPATH_NANOPLOT_OUT
 
 # If the this slurm job fail a crash file is generated
 if [ $? != 0 ]; then touch crash; fi
