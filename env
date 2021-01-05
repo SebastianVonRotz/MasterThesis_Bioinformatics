@@ -1,4 +1,11 @@
-DATAPATH_BASECALLING_TEST_IN="../data/Dataset_test/fast5_small"
-DATAPATH_BASECALLING_TEST_1_OUT="../results/Dataset_test/basecalled_para_1/"
-DATAPATH_BASECALLING_TEST_2_OUT="../results/Dataset_test/basecalled_para_2/"
-REMOTE_PATH="/cfs/earth/scratch/voro/scripts"
+REMOTE_PATH=/cfs/earth/scratch/voro/scripts
+
+DATASET_NAME=Dataset_5
+DATA_PATH_IN=../data/Dataset_5_Array/
+RUN_NAME=Step_01
+
+FLOWCELL=FLO-MIN106
+KIT=SQK-RAD002
+
+GUPPY_BASECALLER_PATH=../local_apps/ont-guppy-cpu/bin/guppy_basecaller
+GUPPY_DEMULTIPLEXING_PATH=../local_apps/ont-guppy-cpu/bin//guppy_barcoder

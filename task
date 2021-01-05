@@ -10,26 +10,34 @@ function conn-hpc() {
 }
 
 function load-env() {
+    export $(cat env)
     echo "The env file: $1 is loaded"
-    export $(cat ./scripts/$1)
 }
 
 function upload-script() {
-    load-env $2
-    echo "upload script: $1 "
+    load-env
     scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
-    echo "upload env vars: $2 "
-    scp ./scripts/$2 head.hpc.zhaw.ch:$REMOTE_PATH
+    scp env head.hpc.zhaw.ch:$REMOTE_PATH
+    echo "Script: $1 and env file are uploaded "
 }
 
-# Depreciated
 function run-hpc-script() {
-    load-env $2
+    load-env
     echo "run $1 script"
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1 $2"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+}
+
+function run-script() {
+    load-env
+    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+    scp env head.hpc.zhaw.ch:$REMOTE_PATH
+    echo "Script: $1 and env file are uploaded "
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+    echo "Script: $1 is running"
 }
 
 function hpc-status() {
+    load-env $2
     echo "Get queue status"
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; squeue"
 }
@@ -73,10 +81,13 @@ case "$1" in
         load-env $2
         ;;
     upload-script)
-        upload-script $2 $3
+        upload-script $2
         ;;
     run-hpc-script)
-        run-hpc-script $2 $3
+        run-hpc-script $2
+        ;;
+    run-script)
+        run-script $2
         ;;
     hpc-status)
         hpc-status

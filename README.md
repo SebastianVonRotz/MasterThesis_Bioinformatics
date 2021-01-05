@@ -25,6 +25,11 @@
 ![Image of the overview](https://github.zhaw.ch/voro/MA-Bioinformatics-Workflows/blob/master/images/user_setup_overview.JPG)
 
 
+## Running Scripts on the HPC
+
+
+
+
 ## General
 
 Check if task alias is created or loaded
