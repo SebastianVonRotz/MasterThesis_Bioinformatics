@@ -4,13 +4,12 @@
 #
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=4
 #
 #SBATCH --time=96:00:00 
 #SBATCH --partition=parallel
 #SBATCH --qos=parallel
-#SBATCH --array=1-21
-#SBATCH --export=ALL,LSFM_HANDLE_ARRAY_JOBS_AS_NORMAL=false
+#SBATCH --array=1-12
 #
 #SBATCH --mail-type=end 
 #SBATCH --mail-user=voro@zhaw.ch
@@ -20,7 +19,7 @@
 export $(cat env)
 
 # Create Output Path
-DATA_PATH_OUT=../results/$DATASET_NAME/Basecalling_Guppy_Array_$RUN_NAME/
+DATA_PATH_OUT=../results/$DATASET_NAME/Basecalling_Guppy_Array_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT

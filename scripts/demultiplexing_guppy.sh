@@ -15,14 +15,14 @@
 #
 
 # Export the env file 
-export $(cat ./$1)
+export $(cat env)
 
-# Create Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/Basecalling_Guppy_Array_$RUN_NAME/
-DATA_PATH_OUT=../results/$DATASET_NAME/Demultiplexing_Guppy_$RUN_NAME/
+# Define Output and Input Path
+DATA_PATH_IN=../results/$DATASET_NAME/Basecalling_Guppy_Array_$RUN_NAME_IN/
+DATA_PATH_OUT=../results/$DATASET_NAME/Demultiplexing_Guppy_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT
 
 # Run the guppy demutiplexer
-GUPPY_DEMULTIPLEXING_PATH -i $DATA_PATH_IN -s $DATA_PATH_OUT --barcode_kits $KIT
+$GUPPY_DEMULTIPLEXING_PATH -i $DATA_PATH_IN -s $DATA_PATH_OUT --barcode_kits $KIT
