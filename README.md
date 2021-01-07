@@ -32,12 +32,12 @@
 
 ## Overview of the user setup
 The task-commands simplify the interaction with a high performance computing envrironment run on the Slurm Workload Manager. This setup is designed and tested to run on the hardware and software envrionment at ZHAW, altought the general concept and scripts should be transferable to other systems. The following picture depicts an overview of the user interaction.
-![HPC_Server_Interaction](https://github.zhaw.ch/voro/MA-Bioinformatics-Workflows/blob/master/assets/HPC_Server_Interaction.JPG)
+![HPC_Server_Interaction](https://github.com/SebastianVonRotz/MasterThesis_Bioinformatics/blob/master/assets/HPC_Server_Interaction.JPG)
 
 ## Overview of processing scripts on the HPC
 Scripts process and transform data in a sequential order. This sequenced processing of the data is depicted in the following picture. Depending on the script certain processing steps need to be fullfilled in order to get the correct inpurt for the current script.
 
-![Scripts_Processing_Overview](https://github.zhaw.ch/voro/MA-Bioinformatics-Workflows/blob/master/assets/Scripts_Processing_Overview.JPG)
+![Scripts_Processing_Overview](https://github.com/SebastianVonRotz/MasterThesis_Bioinformatics/blob/master/assets/Scripts_Processing_Overview.JPG)
 
 ## Step by Step Processing of Scripts
 1. Add the following to the env file:
