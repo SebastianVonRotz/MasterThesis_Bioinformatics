@@ -45,6 +45,10 @@ Scripts process and transform data in a sequential order. This sequenced process
 
 ## Workflow Processing of Scripts
 
+## Available scripts and programs
+
+## Available scripts and programs
+![Scripts_Detailed.JPG](https://github.com/SebastianVonRotz/MasterThesis_Bioinformatics/blob/master/assets/Scripts_Detailed.JPG)
 
 ## Task Commands
 ### General
