@@ -1,4 +1,4 @@
-# MA Bioinformatics Workflows
+# Master Thesis Bioinformatics Workflows
 
 ## Install
 
