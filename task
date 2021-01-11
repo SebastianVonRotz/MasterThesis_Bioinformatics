@@ -4,13 +4,40 @@ function start() {
     echo "The task setup is initiated"
 }
 
+function init() {
+    load-env
+    ssh -t head.hpc.zhaw.ch "mkdir -p $REMOTE_PATH/work_area/{data,scripts,data_temp,results}"
+    echo "The directories are created in the following dir: $REMOTE_PATH/work_area, with following subddirs:"
+    ssh -t head.hpc.zhaw.ch "ls -l $REMOTE_PATH/work_area/"
+}
+
+function list-scripts() {
+    ls -l ./scripts
+}
+
+function run-script() {
+    load-env
+    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+    scp env head.hpc.zhaw.ch:$REMOTE_PATH
+    echo "Script: $1 and env file are uploaded "
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+    echo "Script: $1 is running"
+}
+
+function run-ws() {
+    export $(cat .env)
+    echo "Uploading scripts with the workflow name $1 "
+    scp ./scripts/$1* head.hpc.zhaw.ch:$REMOTE_PATH
+    scp .env head.hpc.zhaw.ch:$REMOTE_PATH
+}
+
 function conn-hpc() {
     echo "starting ssh connection to the hpc"
     ssh -t head.hpc.zhaw.ch "cd /cfs/earth/scratch/voro/scripts; bash"
 }
 
 function load-env() {
-    export $(cat env)
+    export $(cat env  | sed 's/#.*//g' | xargs)
     echo "The env file: $1 is loaded"
 }
 
@@ -25,15 +52,6 @@ function run-hpc-script() {
     load-env
     echo "run $1 script"
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
-}
-
-function run-script() {
-    load-env
-    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
-    scp env head.hpc.zhaw.ch:$REMOTE_PATH
-    echo "Script: $1 and env file are uploaded "
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
-    echo "Script: $1 is running"
 }
 
 function hpc-status() {
@@ -62,17 +80,32 @@ function dl-data() {
     scp -r head.hpc.zhaw.ch:$1 ./data_temp
 }
 
-function run-workflow() {
-    export $(cat .env)
-    echo "Uploading scripts with the workflow name $1 "
-    scp ./scripts/$1* head.hpc.zhaw.ch:$REMOTE_PATH
-    scp .env head.hpc.zhaw.ch:$REMOTE_PATH
+function help() {
+echo
+echo "$1 <command> [options]"
+echo
+echo "commands:"
+echo
+column -t -s"|" ./help.md | tail -n +1
+echo
 }
 
 # Switch case for script parameter 1
 case "$1" in
     start)
         start
+        ;;
+    init)
+        init
+        ;;
+    list-scripts)
+        list-scripts
+        ;;
+    run-script)
+        run-script $2
+        ;;
+    run-ws)
+        run-workflow $2
         ;;
     conn-hpc)
         conn-hpc
@@ -85,9 +118,6 @@ case "$1" in
         ;;
     run-hpc-script)
         run-hpc-script $2
-        ;;
-    run-script)
-        run-script $2
         ;;
     hpc-status)
         hpc-status
@@ -104,10 +134,7 @@ case "$1" in
     dl-data)
         dl-data $2
         ;;
-    run-workflow)
-        run-workflow $2
-        ;;
     *)
-        echo $"Usage: $0 {start|stop|upload-script}"
+        help help
         exit 1
 esac

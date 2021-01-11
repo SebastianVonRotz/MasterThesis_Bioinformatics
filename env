@@ -21,6 +21,6 @@ NANOFILT_MIN_LENGTH=1000
 NANOFILT_MAX_LENGTH=2000
 
 PATH_KRAKEN2=../local_apps/kraken2/Kraken_Installation/kraken2 
-PATH_KRAKEN2_DB=../voro/local_apps/kraken2/scripts/GREENGENES/
+PATH_KRAKEN2_DB=../local_apps/kraken2/scripts/GREENGENES/
 
 PATH_KRONATOOLS=../local_apps/krona/KronaTools-2.7.1/bin/bin/ktImportTaxonomy
