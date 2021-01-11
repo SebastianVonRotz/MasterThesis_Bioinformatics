@@ -1,9 +1,5 @@
 #!/bin/bash
 
-function start() {
-    echo "The task setup is initiated"
-}
-
 function init() {
     load-env
     ssh -t head.hpc.zhaw.ch "mkdir -p $REMOTE_PATH/work_area/{data,scripts,data_temp,results}"
@@ -41,19 +37,6 @@ function load-env() {
     echo "The env file: $1 is loaded"
 }
 
-function upload-script() {
-    load-env
-    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
-    scp env head.hpc.zhaw.ch:$REMOTE_PATH
-    echo "Script: $1 and env file are uploaded "
-}
-
-function run-hpc-script() {
-    load-env
-    echo "run $1 script"
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
-}
-
 function hpc-status() {
     load-env $2
     echo "Get queue status"
@@ -82,11 +65,19 @@ function dl-data() {
 
 function help() {
 echo
-echo "$1 <command> [options]"
-echo
-echo "commands:"
-echo
-column -t -s"|" ./help.md | tail -n +1
+echo "Command <Argument>           Description"
+echo "---------------------------------------------------------------------------------------------"
+echo "init                          Creates project directories at the specified REMOTE_PATH"
+echo "list-scripts                  Returns a List of available scripts and workflows"
+echo "run-script <Script Name>      Execute a script based on name argument"
+echo "run-ws <Workflow Name>        Exceute a workflow base on the name argument"
+echo "conn-hpc                      Connect to the head node on the HPC"
+echo "load-env                      Export the variables of the env file"
+echo "hpc-status                    Get an overview the current jobs running on the HPC"
+echo "job-status <Job ID>           Get overview stats on a job based on its id argument"
+echo "node-status                   Get an overview of the status of the available nodes on the HPC"
+echo "cancel-job <Job ID>           Cancel a job based on its id argument"
+echo "dl-data <Path_to_data>        Dowload data based on a path into the local temp_data directory"
 echo
 }
 
@@ -112,12 +103,6 @@ case "$1" in
         ;;
     load-env)
         load-env $2
-        ;;
-    upload-script)
-        upload-script $2
-        ;;
-    run-hpc-script)
-        run-hpc-script $2
         ;;
     hpc-status)
         hpc-status
