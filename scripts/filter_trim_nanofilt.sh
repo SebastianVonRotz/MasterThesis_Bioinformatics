@@ -26,8 +26,8 @@ module load py-nanofilt/2.7.1-openblas-py3.6-pe5.26
 export $(cat env)
 
 # Define Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/Demultiplexing_qcat_$RUN_NAME_OUT/
-DATA_PATH_OUT=../results/$DATASET_NAME/Filter_Trim_NanoFilt_$RUN_NAME_OUT/
+DATA_PATH_IN=../results/$DATASET_NAME/demultiplexing_qcat_$RUN_NAME_OUT/
+DATA_PATH_OUT=../results/$DATASET_NAME/filter_trim_nanofilt_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT

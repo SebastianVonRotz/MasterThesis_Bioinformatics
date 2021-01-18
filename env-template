@@ -1,7 +1,7 @@
-REMOTE_PATH=/cfs/earth/scratch/voro/scripts
+REMOTE_PATH=/cfs/earth/scratch/voro/work_area/scripts
 
-DATASET_NAME=Dataset_5
-DATA_PATH_IN=../data/Dataset_5/
+DATASET_NAME=Dataset_1
+DATA_PATH_IN=../data/Dataset_1/
 RUN_NAME_IN=Step_01
 RUN_NAME_OUT=Step_01
 

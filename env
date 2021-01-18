@@ -1,9 +1,9 @@
 REMOTE_PATH=/cfs/earth/scratch/voro/scripts
 
-DATASET_NAME=Dataset_5
-DATA_PATH_IN=../data/Dataset_5/
-RUN_NAME_IN=Step_01
-RUN_NAME_OUT=Step_01
+DATASET_NAME=Dataset_4
+DATA_PATH_IN=../data/Dataset_4/
+RUN_NAME_IN=sbs_01
+RUN_NAME_OUT=sbs_01
 
 FLOWCELL=FLO-FLG001
 KIT=SQK-16S024
@@ -11,7 +11,6 @@ KIT=SQK-16S024
 FILES_PER_SUBDIR=20
 
 GUPPY_BASECALLER_PATH=../local_apps/ont-guppy-cpu/bin/guppy_basecaller
-
 GUPPY_DEMULTIPLEXING_PATH=../local_apps/ont-guppy-cpu/bin//guppy_barcoder
 
 QCAT_DEMULTIPLEXING_PATH=../python/bin/qcat

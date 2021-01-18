@@ -16,6 +16,14 @@ function run-script() {
     scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
     scp env head.hpc.zhaw.ch:$REMOTE_PATH
     echo "Script: $1 and env file are uploaded "
+
+    if [ $1 == "r_kraken2_report.sh" ]; then
+        echo "Additional upload of scripts are needed for r_kraken2_report.sh"
+        scp ./scripts/kraken2_report_stats.R head.hpc.zhaw.ch:$REMOTE_PATH
+    else
+        echo "No additional uploads"
+    fi
+    
     ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
     echo "Script: $1 is running"
 }
@@ -33,7 +41,7 @@ function conn-hpc() {
 }
 
 function load-env() {
-    export $(cat env  | sed 's/#.*//g' | xargs)
+    export $(cat env)
     echo "The env file: $1 is loaded"
 }
 
@@ -65,7 +73,10 @@ function dl-data() {
 
 function help() {
 echo
-echo "Command <Argument>           Description"
+echo
+echo "task commmands:"
+echo
+echo "(task) command <argument>     description"
 echo "---------------------------------------------------------------------------------------------"
 echo "init                          Creates project directories at the specified REMOTE_PATH"
 echo "list-scripts                  Returns a List of available scripts and workflows"
@@ -78,6 +89,12 @@ echo "job-status <Job ID>           Get overview stats on a job based on its id 
 echo "node-status                   Get an overview of the status of the available nodes on the HPC"
 echo "cancel-job <Job ID>           Cancel a job based on its id argument"
 echo "dl-data <Path_to_data>        Dowload data based on a path into the local temp_data directory"
+echo 
+echo "Helping commands:"
+echo
+echo "command                       description"
+echo "--------------------------------------------"
+echo "dos2unix                       Convert dos files into unix files. Apply if a problem comes up"
 echo
 }
 

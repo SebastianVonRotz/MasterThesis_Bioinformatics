@@ -18,8 +18,8 @@
 export $(cat env)
 
 # Define Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/Classification_Kraken2_$RUN_NAME_OUT/
-DATA_PATH_OUT=../results/$DATASET_NAME/Report_Krona_$RUN_NAME_OUT/
+DATA_PATH_IN=../results/$DATASET_NAME/classification_kraken2_raw_$RUN_NAME_OUT/
+DATA_PATH_OUT=../results/$DATASET_NAME/krona_plots_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT

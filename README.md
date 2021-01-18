@@ -20,7 +20,7 @@
 
 1. Setup and env file and define the REMOTEPATH, which points to the directorie in which you want to setup the following working area
 
-    `REMOTE_PATH= <Path_to_User>` (example: REMOTE_PATH=/cfs/earth/scratch/$User/work_area/scripts/) 
+    `REMOTE_PATH= <Path_to_User> (e.g. REMOTE_PATH=/cfs/earth/scratch/$User/work_area/scripts/)` 
 
 1. Check the if the task-commands are setup by running
 
@@ -38,6 +38,69 @@ The task-commands simplify the interaction with a high performance computing env
 Scripts process and transform data in a sequential order. This sequenced processing of the data is depicted in the following picture. Depending on the script certain processing steps need to be fullfilled in order to get the correct inpurt for the current script.
 
 ![Scripts_Processing_Overview](https://github.com/SebastianVonRotz/MasterThesis_Bioinformatics/blob/master/assets/Scripts_Processing_Overview.JPG)
+
+
+
+## Creating an env file
+The env file defines variables and parameters which have to be adapted based on installed tools and user envrionment. Each part of the necessary variables is explained in detail in the section "Explanation of the env file content"
+
+1. Create an env file and edit it
+
+`nano env`
+
+2. Add the following to the env file:
+```
+REMOTE_PATH=/cfs/earth/scratch/voro/scripts
+DATASET_NAME=Dataset_5
+DATA_PATH_IN=../data/Dataset_5/
+RUN_NAME_IN=Step_01
+RUN_NAME_OUT=Step_01
+FLOWCELL=FLO-FLG001
+KIT=SQK-16S024
+FILES_PER_SUBDIR=20
+GUPPY_BASECALLER_PATH=../local_apps/ont-guppy-cpu/bin/guppy_basecaller
+GUPPY_DEMULTIPLEXING_PATH=../local_apps/ont-guppy-cpu/bin//guppy_barcoder
+QCAT_DEMULTIPLEXING_PATH=../python/bin/qcat
+NANOFILT_QSCORE=7
+NANOFILT_MIN_LENGTH=1000
+NANOFILT_MAX_LENGTH=2000
+PATH_KRAKEN2=../local_apps/kraken2/Kraken_Installation/kraken2 
+PATH_KRAKEN2_DB=../local_apps/kraken2/scripts/GREENGENES/
+PATH_KRONATOOLS=../local_apps/krona/KronaTools-2.7.1/bin/bin/ktImportTaxonomy
+```
+
+3. **or** adapt the "env-template" and rename it to "env"
+
+## Step by Step Processing of Scripts
+This section describes the step by step processing of data
+
+1. Prerequisite: Section "Install" is successfuly executed
+
+1. Prerequisite: Section "Creating an env file" is successfuly executed
+
+1. Transfer data into the directory path with the following command (This has to be executed on the HPC). It is important the the corresponding raw data .fast5 files are with the directory named accodirng to the DATASET_NAME (no subddirectories allowed).
+
+`cp -avr <Path to dir with Data> <$USER/WorkArea/data>`
+
+1. Check that necessary variables are set to run a specific script, then use the following command.
+
+`run script <Name of the scrip>`
+
+## Workflow Processing of Scripts
+This section describes the execution of a workflow
+
+1. Prerequisite: Section "Install" is successfuly executed
+
+1. Prerequisite: Section "Creating an env file" is successfuly executed
+
+
+
+## Available scripts and programs
+![Scripts_Detailed.JPG](https://github.com/SebastianVonRotz/MasterThesis_Bioinformatics/blob/master/assets/Scripts_Detailed.JPG)
+
+
+
+
 
 ## Explanation of the env file content
 
@@ -96,64 +159,3 @@ For the local installation of the kraken2 classifier a path needs to point to th
 For the local installation of the qcat demultiplexer a path needs to point to the "qcat" command in order to use it.
 
 `PATH_KRONATOOLS=<Path to Installation>`
-
-## Creating an env file
-1. Create an env file and edit it
-
-`nano env`
-
-2. Add the following to the env file:
-```
-REMOTE_PATH=/cfs/earth/scratch/voro/scripts
-DATASET_NAME=Dataset_5
-DATA_PATH_IN=../data/Dataset_5/
-RUN_NAME_IN=Step_01
-RUN_NAME_OUT=Step_01
-FLOWCELL=FLO-FLG001
-KIT=SQK-16S024
-FILES_PER_SUBDIR=20
-GUPPY_BASECALLER_PATH=../local_apps/ont-guppy-cpu/bin/guppy_basecaller
-GUPPY_DEMULTIPLEXING_PATH=../local_apps/ont-guppy-cpu/bin//guppy_barcoder
-QCAT_DEMULTIPLEXING_PATH=../python/bin/qcat
-NANOFILT_QSCORE=7
-NANOFILT_MIN_LENGTH=1000
-NANOFILT_MAX_LENGTH=2000
-PATH_KRAKEN2=../local_apps/kraken2/Kraken_Installation/kraken2 
-PATH_KRAKEN2_DB=../local_apps/kraken2/scripts/GREENGENES/
-PATH_KRONATOOLS=../local_apps/krona/KronaTools-2.7.1/bin/bin/ktImportTaxonomy
-```
-
-3. **or** rename and adapt the "env-template" (rename to "env")
-
-## Step by Step Processing of Scripts
-This section describes the step by step processing of data
-
-1. Prerequisite: Section "Install" is successfuly executed
-
-1. Prerequisite: Section "Creating an env file" is successfuly executed
-
-1. Transfer data into the directory path with the following command (This has to be executed on the HPC). It is important the the corresponding raw data .fast5 files are with the directory named accodirng to the DATASET_NAME (no subddirectories allowed).
-
-`cp -avr <Path to dir with Data> <$USER/WorkArea/data>`
-
-1. Check that necessary variables are set to run a specific script, then use the following command.
-
-`run script <Name of the scrip>`
-
-## Workflow Processing of Scripts
-
-## Available scripts and programs
-![Scripts_Detailed.JPG](https://github.com/SebastianVonRotz/MasterThesis_Bioinformatics/blob/master/assets/Scripts_Detailed.JPG)
-
-
-
-
-
-
-##### Helpers
-
-Convert dos file to unix file.  
-
-`dos2unix <filename>`
-
-

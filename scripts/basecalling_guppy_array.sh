@@ -19,7 +19,7 @@
 export $(cat env)
 
 # Create Output Path
-DATA_PATH_OUT=../results/$DATASET_NAME/Basecalling_Guppy_Array_$RUN_NAME_OUT/
+DATA_PATH_OUT=../results/$DATASET_NAME/basecalling_guppy_array_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT

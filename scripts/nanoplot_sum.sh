@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH --job-name=Nanoplot
+#SBATCH --job-name=Nanoplot_Summary
 #
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
@@ -25,20 +25,13 @@ module load py-nanoplot/1.32.0-openblas-py3.6-pe5.26
 export $(cat env)
 
 # Define Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/Basecalling_Guppy_Array_$RUN_NAME_IN/
-DATA_PATH_OUT=../results/$DATASET_NAME/Report_nanoplot_$RUN_NAME_OUT/
+DATA_PATH_IN=../results/$DATASET_NAME/basecalling_guppy_job_$RUN_NAME_OUT/
+DATA_PATH_OUT=../results/$DATASET_NAME/nanoplot_sum_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT
 
-# Coppy all fastq files to the nanoplot output folder
-cat $DATA_PATH_IN*.fastq > ${DATA_PATH_OUT}aggregated.fastq
-
-# Run the NanoPlot application
-NanoPlot --fastq  ${DATA_PATH_OUT}aggregated.fastq --loglength -o $DATA_PATH_OUT
-
-# Delete the aggregated fastq file
-rm ${DATA_PATH_OUT}aggregated.fastq
+NanoPlot --summary  ${DATA_PATH_IN}sequencing_summary.txt --loglength -o $DATA_PATH_OUT  
 
 					 
 
