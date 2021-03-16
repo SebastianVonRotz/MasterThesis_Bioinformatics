@@ -18,7 +18,7 @@
 export $(cat env)
 
 # Define Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/filter_trim_nanofilt_$RUN_NAME_OUT/
+DATA_PATH_IN=../results/$DATASET_NAME/filter_trim_nanofilt_$RUN_NAME_IN/
 DATA_PATH_OUT=../results/$DATASET_NAME/classification_kraken2_nanofilt_$RUN_NAME_OUT/
 
 # Create Output dir

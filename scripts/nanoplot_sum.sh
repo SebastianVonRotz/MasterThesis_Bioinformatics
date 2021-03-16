@@ -25,7 +25,7 @@ module load py-nanoplot/1.32.0-openblas-py3.6-pe5.26
 export $(cat env)
 
 # Define Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/basecalling_guppy_job_$RUN_NAME_OUT/
+DATA_PATH_IN=../results/$DATASET_NAME/basecalling_guppy_job_$RUN_NAME_IN/
 DATA_PATH_OUT=../results/$DATASET_NAME/nanoplot_sum_$RUN_NAME_OUT/
 
 # Create Output dir

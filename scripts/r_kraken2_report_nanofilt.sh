@@ -27,8 +27,8 @@ module load r-withr/2.1.2-openblas-r3.6-py3.6-pe5.26
 export $(cat env)
 
 # Define Output and Input Path
-DATA_PATH_IN=../results/$DATASET_NAME/classification_kraken2_raw_$RUN_NAME_IN/
-DATA_PATH_OUT=../results/$DATASET_NAME/r_kraken2_report_$RUN_NAME_OUT/
+DATA_PATH_IN=../results/$DATASET_NAME/classification_kraken2_nanofilt_$RUN_NAME_IN/
+DATA_PATH_OUT=../results/$DATASET_NAME/r_kraken2_report_nanofilt_$RUN_NAME_OUT/
 
 # Create Output dir
 mkdir -p $DATA_PATH_OUT
