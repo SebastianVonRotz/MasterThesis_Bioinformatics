@@ -1,6 +1,8 @@
 # POND a Framework for Processing Of Nanopore Data
 
-![HPC_Server_Interaction](https://github.com/SebastianVonRotz/POND/blob/master/assets/POND_Logo.JPG)
+![HPC_Server_Interaction](https://github.com/SebastianVonRotz/POND/blob/master/assets/POND_Logo.JPG){:style="float: right;margin-right: 7px;margin-top: 7px;"}
+
+![HPC_Server_Interaction](/assets/POND_Logo.JPG){:height="700px" width="400px"}
 
 This framework enables a simple script based aproach for automated processing of nanopore data on a remote server with a Slurm Workload Manager.
 
