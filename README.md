@@ -116,7 +116,7 @@ This section describes the execution of a workflow
 
 1. Prerequisite: Section "Creating an env file" is successfuly executed
 
-4. Depending on the sequencing read outpu the raw data can be in many subdirs and labelled by quality and barcode. In order to copy all the .fast5 files within the subdirectories into a single directory the following command can be used on the server:
+4. Depending on the sequencing read output, the raw data can be in many subdirectories and labelled by quality and barcode id. In order to copy all the .fast5 files within the subdirectories into a single directory the following command can be used on the server:
 
 `find Directory_Raw_Data_Old/ -name "*.fast5" -exec cp {} Directory_Raw_Data_New/ \;`
 
