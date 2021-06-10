@@ -44,8 +44,7 @@ The task commands simplify the interaction with the Slurm task manager on the hi
 ## Overview of processing scripts on the HPC
 Scripts process and transform data in a sequential order. This sequenced processing of the data is depicted in the following picture. Depending on the script certain processing steps need to be fullfilled in order to get the correct input for the current and next script.
 
-![Scripts_Processing_Overview](https://github.com/SebastianVonRotz/POND/blob/master/assets/Section_5.2_POND_Scripts_Flow.JPG)
-
+![Scripts_Processing_Overview](https://github.com/SebastianVonRotz/POND/blob/master/assets/Section_5.2_POND_Scripts_Flow.jpg)
 
 ## Creating an env file
 The env file defines variables and parameters, which have to be adapted based on installed tools and the specific user envrionment. Each part of the defined variables is explained in detail in the section "Explanation of the env file content"
