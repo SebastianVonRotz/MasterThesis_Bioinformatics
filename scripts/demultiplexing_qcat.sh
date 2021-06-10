@@ -21,6 +21,9 @@ module load gcc/7.3.0
 module load python/3.6.5-pe5.26
 module load py-setuptools/41.4.0-py3.6-pe5.26
 
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi
+
 # Export the env file 
 export $(cat env)
 
@@ -37,3 +40,6 @@ cat $DATA_PATH_IN*.fastq | $QCAT_DEMULTIPLEXING_PATH -b $DATA_PATH_OUT 2>&1
 # Copy the qcat output to the output folder end remove it from the working dir
 cp qcat_output $DATA_PATH_OUT
 rm qcat_output
+
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi

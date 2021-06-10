@@ -12,27 +12,88 @@ function list-scripts() {
 }
 
 function run-script() {
+
     load-env
-    scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
-    scp env head.hpc.zhaw.ch:$REMOTE_PATH
-    echo "Script: $1 and env file are uploaded "
 
     if [ $1 == "r_kraken2_report.sh" ]; then
+        scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "Script: $1 and env file are uploaded "
         echo "Additional upload of scripts are needed for r_kraken2_report.sh"
         scp ./scripts/kraken2_report_stats.R head.hpc.zhaw.ch:$REMOTE_PATH
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+        echo "Script: $1 is running"
+    elif [ $1 == "r_kraken2_report_nanofilt.sh" ]; then
+        scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "Script: $1 and env file are uploaded "
+        echo "Additional upload of scripts are needed for r_kraken2_report.sh"
+        scp ./scripts/kraken2_report_stats.R head.hpc.zhaw.ch:$REMOTE_PATH
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+        echo "Script: $1 is running"
+    elif [ $1 == "job_array_prep.sh" ]; then
+        scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "Script: $1 and env file are uploaded "
+        echo "Additional upload of scripts are needed for pre_basecalling_guppy_array.sh"
+        scp ./scripts/basecalling_guppy_array.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+        echo "Script: $1 is running"
+    elif [ $1 == "basecalling_guppy_array.sh" ]; then
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "The current script should have been uploaded and adapted with the pre_basecalling_guppy_array.sh script. Check for correct array adaption!"
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+        echo "Script: $1 is running"
     else
-        echo "No additional uploads"
+        scp ./scripts/$1 head.hpc.zhaw.ch:$REMOTE_PATH
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "Script: $1 and env file are uploaded "
+        echo "No additional uploads needed"
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
+        echo "Script: $1 is running"
     fi
-    
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; sbatch $1"
-    echo "Script: $1 is running"
+
 }
 
-function run-ws() {
-    export $(cat .env)
-    echo "Uploading scripts with the workflow name $1 "
-    scp ./scripts/$1* head.hpc.zhaw.ch:$REMOTE_PATH
-    scp .env head.hpc.zhaw.ch:$REMOTE_PATH
+function run-wf() {
+    # export $(cat .env)
+    # echo "Uploading scripts with the workflow name $1 "
+    # scp ./scripts/$1* head.hpc.zhaw.ch:$REMOTE_PATH
+    # scp .env head.hpc.zhaw.ch:$REMOTE_PATH
+
+    load-env
+
+    if [ $1 == "wf_tax_classification.sh" ]; then
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "Upload of several scripts"
+        scp ./scripts/wf_tax_classification.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/basecalling_guppy_array.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/nanoplot_fastq.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/demultiplexing_qcat.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/filter_trim_nanofilt.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/classification_kraken2_nanofilt.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/r_kraken2_report_nanofilt.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/script kraken2_report_stats.R head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "All files Uploaded"
+        echo "Executing the workflow script"
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; bash $1"
+        echo "Workflow: wf_tax_classification.sh is running"
+    elif [ $1 == "wf_basic_processing.sh" ]; then
+        scp env head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "Upload of several scripts"
+        scp ./scripts/wf_basic_processing.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/basecalling_guppy_array.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/nanoplot_fastq.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/demultiplexing_qcat.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        scp ./scripts/filter_trim_nanofilt.sh head.hpc.zhaw.ch:$REMOTE_PATH
+        echo "All files Uploaded"
+        echo "Executing the workflow script"
+        ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; bash $1"
+        echo "Workflow: wf_tax_classification.sh is running"
+    else
+        echo "This is not an available workflow"
+    fi
+
 }
 
 function conn-hpc() {
@@ -48,7 +109,7 @@ function load-env() {
 function hpc-status() {
     load-env $2
     echo "Get queue status"
-    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; squeue"
+    ssh head.hpc.zhaw.ch "cd $REMOTE_PATH; pwd; squeue -u voro"
 }
 
 function job-status() {
@@ -81,7 +142,7 @@ echo "--------------------------------------------------------------------------
 echo "init                          Creates project directories at the specified REMOTE_PATH"
 echo "list-scripts                  Returns a List of available scripts and workflows"
 echo "run-script <Script Name>      Execute a script based on name argument"
-echo "run-ws <Workflow Name>        Exceute a workflow base on the name argument"
+echo "run-wf <Workflow Name>        Exceute a workflow base on the name argument"
 echo "conn-hpc                      Connect to the head node on the HPC"
 echo "load-env                      Export the variables of the env file"
 echo "hpc-status                    Get an overview the current jobs running on the HPC"
@@ -112,8 +173,8 @@ case "$1" in
     run-script)
         run-script $2
         ;;
-    run-ws)
-        run-workflow $2
+    run-wf)
+        run-wf $2
         ;;
     conn-hpc)
         conn-hpc

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH --job-name=guppy-batch_basecalling
+#SBATCH --job-name=Stats_Report_Kraken2
 #
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=2 
@@ -23,6 +23,9 @@ module load r/3.6.2-openblas-py3.6-pe5.26
 module load r-devtools/2.2.1-openblas-r3.6-py3.6-pe5.26 
 module load r-withr/2.1.2-openblas-r3.6-py3.6-pe5.26
 
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi
+
 # Export the env file 
 export $(cat env)
 
@@ -39,3 +42,5 @@ for report in $DATA_PATH_IN*REPORT
     Rscript kraken2_report_stats.R $report $DATA_PATH_OUT$(basename $report)_Stats
   done
 			 
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi

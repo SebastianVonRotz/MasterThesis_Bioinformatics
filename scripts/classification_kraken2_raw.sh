@@ -27,6 +27,6 @@ mkdir -p $DATA_PATH_OUT
 # Run the Classification for each barcode fastq file
 for fq in $DATA_PATH_IN*.fastq
   do
-    $PATH_KRAKEN2 --report $DATA_PATH_OUT$(basename $fq)_REPORT --db $PATH_KRAKEN2_DB $fq > $DATA_PATH_OUT$(basename $fq)_OUTPUT
+    $PATH_KRAKEN2 --report $DATA_PATH_OUT$(basename $fq)_REPORT --db $PATH_KRAKEN2_DB_GG $fq > $DATA_PATH_OUT$(basename $fq)_OUTPUT
   done
 

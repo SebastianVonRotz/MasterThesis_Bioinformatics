@@ -4,7 +4,7 @@
 #
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=12
 #
 #SBATCH --time=96:00:00 
 #SBATCH --partition=single 
@@ -20,6 +20,9 @@ module load USS/2020
 module load gcc/7.3.0
 module load openblas/0.3.5-haswell-ep
 module load py-nanoplot/1.32.0-openblas-py3.6-pe5.26
+
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi
 
 # Export the env file 
 export $(cat env)
@@ -41,4 +44,5 @@ NanoPlot --fastq  ${DATA_PATH_OUT}aggregated.fastq --loglength -o $DATA_PATH_OUT
 rm ${DATA_PATH_OUT}aggregated.fastq
 
 					 
-
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi

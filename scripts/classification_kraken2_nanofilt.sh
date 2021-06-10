@@ -14,6 +14,9 @@
 #SBATCH --mail-user=voro@zhaw.ch
 #
 
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi
+
 # Export the env file 
 export $(cat env)
 
@@ -27,6 +30,8 @@ mkdir -p $DATA_PATH_OUT
 # Run the Classification for each barcode fastq file
 for fq in $DATA_PATH_IN*.fastq
   do
-    $PATH_KRAKEN2 --report $DATA_PATH_OUT$(basename $fq)_REPORT --db $PATH_KRAKEN2_DB $fq > $DATA_PATH_OUT$(basename $fq)_OUTPUT
+    $PATH_KRAKEN2 --report $DATA_PATH_OUT$(basename $fq)_REPORT --db $PATH_KRAKEN2_DB_GG $fq > $DATA_PATH_OUT$(basename $fq)_OUTPUT
   done
 
+# Check if a previous workflow slurm jbo has crashed
+if [ -f crash ]; then exit 1; fi

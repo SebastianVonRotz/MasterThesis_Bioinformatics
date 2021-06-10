@@ -1,9 +1,10 @@
 REMOTE_PATH=/cfs/earth/scratch/voro/scripts
 
-DATASET_NAME=Dataset_4
-DATA_PATH_IN=../data/Dataset_4/
-RUN_NAME_IN=tax_wf_comp_01
-RUN_NAME_OUT=tax_wf_comp_01
+DATASET_NAME=Dataset_Temp1
+DATA_PATH_IN=../data/Dataset_Temp1/
+RUN_NAME_IN=TempTax_1
+RUN_NAME_OUT=TempTax_1
+
 FLOWCELL=FLO-FLG001
 KIT=SQK-16S024
 
@@ -15,10 +16,15 @@ GUPPY_DEMULTIPLEXING_PATH=../local_apps/ont-guppy-cpu/bin/guppy_barcoder
 QCAT_DEMULTIPLEXING_PATH=../python/bin/qcat
 
 NANOFILT_QSCORE=7
-NANOFILT_MIN_LENGTH=1000
-NANOFILT_MAX_LENGTH=2000
+NANOFILT_MIN_LENGTH=1500
+NANOFILT_MAX_LENGTH=2500
 
 PATH_KRAKEN2=../local_apps/kraken2/Kraken_Installation/kraken2 
-PATH_KRAKEN2_DB=../local_apps/kraken2/scripts/GREENGENES/
+PATH_KRAKEN2_DB_SILVA=../local_apps/kraken2/Kraken_Installation/SILVA/
+PATH_KRAKEN2_DB_RDP=../local_apps/kraken2/Kraken_Installation/RDP/
+PATH_KRAKEN2_DB_GG=../local_apps/kraken2/scripts/GREENGENES/
+
 PATH_KRONATOOLS=../local_apps/krona/KronaTools-2.7.1/bin/bin/ktImportText
 PATH_KRAKEN2KRONA=../local_apps/lskScripts/scripts/kraken2-translate.pl
+
+UDOCKER_PATH=../local_apps/udocker
