@@ -38,7 +38,7 @@ This framework enables a simple script based approach for automated processing o
     `task init`
 
 ## Overview of the user setup
-The task commands simplify the interaction with the Slurm task manager on the high performance computing envrironment. This setup is designed and tested to run on the hardware and software envrionment at ZHAW, altought the general concept and scripts should be transferable to other systems. The following picture depicts an overview of the user interaction.
+The task commands simplify the interaction with the Slurm task manager on the high performance computing environment. This setup is designed and tested to run on the hardware and software envrionment at ZHAW, altought the general concept and scripts should be transferable to other systems. The following picture depicts an overview of the user interaction.
 ![HPC_Server_Interaction](https://github.com/SebastianVonRotz/POND/blob/master/assets/Section_5.2_POND_Server_Interaction.jpg)
 
 ## Overview of processing scripts on the HPC
@@ -101,7 +101,7 @@ This section describes the step by step processing of data.
 
 `cp -avr <Path to dir with Data> <$USER/WorkArea/data>`
 
-4. Depending on the sequencing read outpu the raw data can be in many subdirs and labelled by quality and barcode. In order to copy all the .fast5 files within the subdirectories into a single directory the following command can be used on the server:
+4. Depending on the sequencing read output the raw data can be within many subdirectories and labelled by quality and barcode. In order to copy all the .fast5 files within the subdirectories into a single directory the following command can be used on the server:
 
 `find Directory_Raw_Data_Old/ -name "*.fast5" -exec cp {} Directory_Raw_Data_New/ \;`
 
@@ -125,12 +125,14 @@ This section describes the execution of a workflow
 
 `task run-wf <Name of the workflow>`
 
-## Available scripts and programs
-The available scripts and tested programs are shown below. The uper half shows the tools and displays their type of installation, version and source. The lower half shows the corresponding scripts utilizing the tools for data processing.
-
-![Scripts_Detailed.JPG](https://github.com/SebastianVonRotz/POND/blob/master/assets/Section_5.2_POND_Scripts_Detailed.JPG)
-
 ## Explanation of the env file content
 The content of the evn files is explained in the following file:
 
 [Env File Content](https://github.com/SebastianVonRotz/POND/blob/master/env_file_content.md)
+
+## Available scripts and programs
+The available scripts and tested programs are shown below. The uper half shows the tools and displays their type of installation, version and source. The lower half shows the corresponding scripts utilizing the tools for data processing.
+
+![Scripts_Detailed.JPG](https://github.com/SebastianVonRotz/POND/blob/master/assets/Section_5.2_POND_Scripts_Detailed.jpg)
+
+
